@@ -14,7 +14,7 @@ import joblib
 # ============================================
 # LOAD DATA
 # ============================================
-df = pd.read_csv("./heart_dataset.csv")   
+df = pd.read_csv("../datasets/heart_dataset.csv")   
 
 # Target column
 X = df.drop("condition", axis=1)
@@ -80,12 +80,12 @@ optimal_threshold = float(thresholds[best_idx])
 # ============================================
 
 # Ensure models folder exists
-os.makedirs("models", exist_ok=True)
+os.makedirs("../models", exist_ok=True)
 
 # Save inside /models/
 joblib.dump(
     {"pipeline": pipeline, "threshold": optimal_threshold},
-    "models/heart_model.pkl"
+    "../models/heart_model.pkl"
 )
 
 print("Model saved at: models/heart_model.pkl")

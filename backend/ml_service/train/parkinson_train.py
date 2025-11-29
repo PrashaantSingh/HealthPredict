@@ -14,7 +14,7 @@ import joblib
 # ============================================
 # LOAD DATA
 # ============================================
-DATA_PATH = Path(__file__).resolve().parent / "parkinsons.data"
+DATA_PATH = Path(__file__).resolve().parent / "../datasets/parkinsons.data"
 df = pd.read_csv(DATA_PATH)
 
 # Drop name column if present
@@ -72,11 +72,11 @@ else:
 print("Optimal threshold:", optimal_threshold)
 
 # ============================================
-# SAVE MODEL FOR BACKEND (IMPORTANT FIX)
+# SAVE MODEL FOR BACKEND 
 # ============================================
-os.makedirs("models", exist_ok=True)
+os.makedirs("../models", exist_ok=True)
 
-save_path = "models/parkinson_model.pkl"
+save_path = "../models/parkinson_model.pkl"
 
 joblib.dump(
     {"pipeline": pipeline, "threshold": optimal_threshold},

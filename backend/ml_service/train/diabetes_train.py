@@ -10,12 +10,12 @@ import joblib
 import os
 
 RANDOM_STATE = 42
-FILE_PATH = "data/diabetes_prediction_dataset.csv"   # put dataset inside /backend/data/
+FILE_PATH = "../datasets/diabetes_prediction_dataset.csv"   # put dataset inside /backend/data/
 
 def train_model():
 
     # Ensure models folder exists
-    os.makedirs("models", exist_ok=True)
+    os.makedirs("../models", exist_ok=True)
 
     df = pd.read_csv(FILE_PATH)
 
@@ -81,7 +81,7 @@ def train_model():
         "threshold": float(optimal_threshold)
     }
 
-    save_path = "models/diabetes_model.pkl"
+    save_path = "../models/diabetes_model.pkl"
     joblib.dump(model_package, save_path)
     print("Model saved at:", save_path)
 
