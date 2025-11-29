@@ -1,5 +1,6 @@
 """Training script for the Parkinson disease classifier."""
 from pathlib import Path
+import os
 
 import numpy as np
 import pandas as pd
@@ -16,10 +17,11 @@ import joblib
 DATA_PATH = Path(__file__).resolve().parent / "parkinsons.data"
 df = pd.read_csv(DATA_PATH)
 
+# Drop name column if present
 if "name" in df.columns:
-    df = df.drop(columns=["name"])  # Remove non-numeric identifier column
+    df = df.drop(columns=["name"])
 
-# Target column
+# Features & target
 X = df.drop(columns=["status"])
 y = df["status"]
 
@@ -55,13 +57,13 @@ y_proba = pipeline.predict_proba(X_test)[:, 1]
 
 precision, recall, thresholds = precision_recall_curve(y_test, y_proba)
 
-# F1 score for each threshold
+# F1 scores
 f1_scores = (2 * precision * recall) / (precision + recall)
 f1_scores = np.nan_to_num(f1_scores)
 
 best_idx = np.argmax(f1_scores)
 
-# align with thresholds length (precision array is longer)
+# Handle mismatch
 if best_idx >= len(thresholds):
     optimal_threshold = 0.5
 else:
@@ -70,11 +72,15 @@ else:
 print("Optimal threshold:", optimal_threshold)
 
 # ============================================
-# SAVE MODEL FOR BACKEND
+# SAVE MODEL FOR BACKEND (IMPORTANT FIX)
 # ============================================
+os.makedirs("models", exist_ok=True)
+
+save_path = "models/parkinson_model.pkl"
+
 joblib.dump(
     {"pipeline": pipeline, "threshold": optimal_threshold},
-    "parkinson_model.pkl"
+    save_path
 )
 
-print("Saved parkinson_model.pkl")
+print("Saved:", save_path)

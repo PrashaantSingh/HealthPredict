@@ -7,11 +7,16 @@ from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 from sklearn.metrics import precision_recall_curve, classification_report
 import joblib
+import os
 
 RANDOM_STATE = 42
-FILE_PATH = "diabetes_prediction_dataset.csv"   # Ensure this file is inside the model folder
+FILE_PATH = "data/diabetes_prediction_dataset.csv"   # put dataset inside /backend/data/
 
 def train_model():
+
+    # Ensure models folder exists
+    os.makedirs("models", exist_ok=True)
+
     df = pd.read_csv(FILE_PATH)
 
     X = df.drop('diabetes', axis=1)
@@ -70,13 +75,15 @@ def train_model():
     print(report)
     print(f"Optimal Threshold: {optimal_threshold:.4f}")
 
+    # SAVE MODEL IN MODELS FOLDER
     model_package = {
         "pipeline": pipeline,
-        "threshold": optimal_threshold
+        "threshold": float(optimal_threshold)
     }
 
-    joblib.dump(model_package, "diabetes_model.pkl")
-    print("Model saved as diabetes_model.pkl")
+    save_path = "models/diabetes_model.pkl"
+    joblib.dump(model_package, save_path)
+    print("Model saved at:", save_path)
 
 if __name__ == "__main__":
     train_model()

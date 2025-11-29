@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -77,9 +78,14 @@ optimal_threshold = float(thresholds[best_idx])
 # ============================================
 # SAVE MODEL FOR BACKEND
 # ============================================
+
+# Ensure models folder exists
+os.makedirs("models", exist_ok=True)
+
+# Save inside /models/
 joblib.dump(
     {"pipeline": pipeline, "threshold": optimal_threshold},
-    "heart_model.pkl"
+    "models/heart_model.pkl"
 )
 
-print("Model saved as heart_model.pkl")
+print("Model saved at: models/heart_model.pkl")
