@@ -1,0 +1,85 @@
+# -------------------------------------
+# PYTHON & ENVIRONMENT FILES
+# -------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.joblib
+*.pickle
+*.sav
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# -------------------------------------
+# MODEL FILES (DO NOT PUSH)
+# -------------------------------------
+*.pkl
+*.joblib
+*.model
+*.bin
+models/*.pkl
+models/*.joblib
+
+# -------------------------------------
+# DATASETS (LARGE FILES)
+# -------------------------------------
+*.csv
+*.xlsx
+*.xls
+*.json
+*.zip
+*.tar
+*.gz
+data/
+datasets/
+*.tsv
+
+# -------------------------------------
+# LOG FILES
+# -------------------------------------
+*.log
+logs/
+
+# -------------------------------------
+# COLAB / NOTEBOOK EXPORT FILES
+# -------------------------------------
+*.ipynb
+*.nbconvert.ipynb
+
+# -------------------------------------
+# NODE/REACT FRONTEND
+# -------------------------------------
+# Node modules
+node_modules/
+
+# Dist build
+dist/
+build/
+
+# Environment files
+*.env
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# -------------------------------------
+# EDITOR / SYSTEM FILES
+# -------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
