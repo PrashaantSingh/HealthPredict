@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import DiseaseTabs from "../components/DiseaseTabs";
 
 export default function Predictions() {
   const diseases = [
@@ -10,11 +10,14 @@ export default function Predictions() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
       <div className="max-w-4xl mx-auto px-6 py-12">
         <h2 className="text-2xl font-semibold text-gray-900 mb-6">
           Predictions
         </h2>
+
+        <div className="mb-8">
+          <DiseaseTabs />
+        </div>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {diseases.map((d) => (

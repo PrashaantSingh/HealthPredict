@@ -1,1 +1,87 @@
 @import "tailwindcss";
+
+html.dark-mode body {
+  background-color: #141821;
+  color: #e6e9ef;
+}
+
+html.dark-mode .bg-gray-50 {
+  background-color: #141821 !important;
+}
+
+html.dark-mode .bg-white {
+  background-color: #1d2430 !important;
+}
+
+html.dark-mode .text-gray-900,
+html.dark-mode .text-gray-800,
+html.dark-mode .text-gray-700 {
+  color: #f3f4f6 !important;
+}
+
+html.dark-mode .text-gray-600,
+html.dark-mode .text-gray-500,
+html.dark-mode .text-gray-400 {
+  color: #b5bfcc !important;
+}
+
+html.dark-mode .border,
+html.dark-mode .border-gray-100,
+html.dark-mode .border-gray-200,
+html.dark-mode .border-gray-300 {
+  border-color: #3a4658 !important;
+}
+
+html.dark-mode input,
+html.dark-mode select,
+html.dark-mode textarea {
+  background-color: #222b38 !important;
+  color: #f3f4f6 !important;
+  border-color: #4a5a71 !important;
+}
+
+html.dark-mode .hover\:bg-gray-50:hover {
+  background-color: #222b38 !important;
+}
+
+html.dark-mode .bg-red-50 {
+  background-color: #3a1f2a !important;
+}
+
+html.dark-mode .bg-emerald-50 {
+  background-color: #1b3531 !important;
+}
+
+html.dark-mode .border-red-200 {
+  border-color: #834053 !important;
+}
+
+html.dark-mode .border-emerald-200 {
+  border-color: #2f6a60 !important;
+}
+
+html.dark-mode .text-red-900,
+html.dark-mode .text-red-700 {
+  color: #fecdd3 !important;
+}
+
+html.dark-mode .text-emerald-900,
+html.dark-mode .text-emerald-700 {
+  color: #a7f3d0 !important;
+}
+
+html.dark-mode .result-card-error {
+  background-color: #3a1f2a !important;
+  border-color: #834053 !important;
+  color: #fecdd3 !important;
+}
+
+html.dark-mode .theme-toggle {
+  background-color: rgba(29, 36, 48, 0.92) !important;
+  border-color: #4a5a71 !important;
+  color: #e6e9ef !important;
+}
+
+html.dark-mode .theme-toggle:hover {
+  background-color: rgba(34, 43, 56, 0.96) !important;
+}

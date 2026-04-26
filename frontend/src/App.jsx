@@ -3,9 +3,11 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Predictions from "./pages/Predictions";
+import Results from "./pages/Results";
 import Diabetes from "./pages/Diabetes";
 import Heart from "./pages/Heart";
 import Parkinsons from "./pages/Parkinsons";
+import ThemeToggle from "./components/ThemeToggle";
 import useAuthStore from "./store/authStore";
 import { useEffect } from "react";
 
@@ -20,6 +22,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ThemeToggle />
       <Routes>
         {/* <Route
           path={"/"}
@@ -28,8 +31,9 @@ export default function App() {
         /> */}
         <Route path={"/signup"} element={<Signup />} />
         <Route path={"/login"} element={<Login />} />
-        {/* <Route path={"/predictions"} element={<Predictions />} /> */}
-        <Route path={"/"} element={<Predictions />} />
+        <Route path={"/"} element={<Navigate to={"/predictions"} replace />} />
+        <Route path={"/predictions"} element={<Predictions />} />
+        <Route path={"/results"} element={<Results />} />
         <Route path={"/predictions/diabetes"} element={<Diabetes />} />
         <Route path={"/predictions/heart"} element={<Heart />} />
         <Route path={"/predictions/parkinsons"} element={<Parkinsons />} />
